@@ -43,22 +43,27 @@ def browseSong():
     dictionary[songName] = browsePath
     y = list.size()
     list.insert(y, songName)
+    list.select_anchor(y)
+    list.activate(y)
+    list.selection_clear(0, tk.END)
+    list.selection_set(y)
 
 Play = tk.Button(text='Play from Beginning', command=play)
 Play.grid(row=0, column=1)
 PausePlay = tk.Button(text='Pause', command=pauseplay, width=10)
 PausePlay.grid(row=0, column=2)
 
-Box = tk.LabelFrame(window, text='ADD SONGS', font='Courier 12')
-Box.grid(column=0, row=3)
+Box = tk.LabelFrame(window, text='Your Music', font='Courier 12')
+Box.grid(column=0, row=0)
 
 emptyLabel = tk.Label(bg=mainColor)
 emptyLabel.grid(column=0, row=2)
 
+
 browseSongs = tk.Button(Box, text='Browse', width=16, command=browseSong)
 browseSongs.grid(row=2, column=0)
 
-list = tk.Listbox(window)
+list = tk.Listbox(Box)
 list.grid(row=1, column=0)
 list.insert(0, 'E.S. Posthumus - Nara')
 list.insert(1, 'Against All Odds')
