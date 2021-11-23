@@ -18,11 +18,10 @@ window.geometry("500x500")
 mixer.init()
 
 global songList
-songList = ['E.S. Posthumus - Nara', 'Against All Odds']
+songList = []
 
 global pathList
-pathList = ['D:\Music\Independent\E.S. Posthumus - Nara.mp3',
-            "D:\Music\Moonlight Shadows\\05 Against All Odds.mp3"]
+pathList = []
 
 global path
 path = ''
@@ -124,10 +123,10 @@ def songTime():
 
 
 
-pauseImage = tk.PhotoImage(file="D:\Programming\Python\MusicPlayer\pause.png")
-playImage = tk.PhotoImage(file="D:\Programming\Python\MusicPlayer\play.png")
-rewindImage = tk.PhotoImage(file="D:\Programming\Python\MusicPlayer\\rewind.png")
-forwardImage = tk.PhotoImage(file="D:\Programming\Python\MusicPlayer\\forward.png")
+pauseImage = tk.PhotoImage(file="pause.png")
+playImage = tk.PhotoImage(file="play.png")
+rewindImage = tk.PhotoImage(file="rewind.png")
+forwardImage = tk.PhotoImage(file="forward.png")
 
 PausePlay = tk.Button(command=pauseplay, bg='#F39C12', activebackground='#EE9201')
 PausePlay.grid(row=1, column=3)
