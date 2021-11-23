@@ -91,7 +91,10 @@ def browseSong():
     global pathList
     global path
     try:
-        file = filedialog.askopenfilenames(initialdir='\Music')
+        if os.name == 'nt':
+            file = filedialog.askopenfilenames(initialdir='\Music')
+        elif os.name == 'posix':
+            file = filedialog.askopenfilenames(initialdir='/home/hrishikesh/Music')
         path = str(file)[2:len(str(file)) - 3]
         mixer.music.load(path)
         mixer.music.play()
@@ -111,7 +114,7 @@ def browseSong():
 
 
 def songTime():
-    timeElapsed = (mixer.music.get_pos())/1000
+    timeElapsed = (mixer.music.get_pos()) / 1000
     time = strftime("%H:%M:%S", gmtime(timeElapsed))
     timeLabel.config(text=time)
     timeLabel.after(1000, songTime)
@@ -119,8 +122,6 @@ def songTime():
     songLength = song.info.length
     slider.config(to=songLength)
     slider.set(timeElapsed)
-
-
 
 
 pauseImage = tk.PhotoImage(file="pause.png")
@@ -149,7 +150,6 @@ Box.grid(column=0, row=0)
 sliderFrame = tk.LabelFrame(window)
 sliderFrame.grid(column=2, row=3, columnspan=3)
 
-
 emptyLabel = tk.Label(bg=mainColor)
 emptyLabel.grid(column=0, row=2)
 emptyLabel2 = tk.Label(bg=mainColor, width=2)
@@ -162,8 +162,6 @@ browseSongs.grid(row=2, column=0)
 
 list = tk.Listbox(Box, selectmode='browse')
 list.grid(row=1, column=0)
-list.insert(0, 'E.S. Posthumus - Nara')
-list.insert(1, 'Against All Odds')
 list.bind('<<ListboxSelect>>', play)
 
 window.mainloop()
