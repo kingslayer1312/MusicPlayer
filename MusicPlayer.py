@@ -143,7 +143,7 @@ Rewind.grid(row=1, column=2)
 Forward = tk.Button(command=forward, bg='#F39C12', image=forwardImage, activebackground='#EE9201')
 Forward.grid(row=1, column=4)
 
-slider = tk.Scale(window, from_=0, to=200, length=260, orient='horizontal', bg=mainColor, fg='white', showvalue=0)
+slider = tk.Scale(window, from_=0, to=200, length=260, orient='horizontal', bg=mainColor, fg='grey', showvalue=0)
 slider.grid(row=2, columnspan=3, column=2, pady=20)
 
 Box = tk.LabelFrame(window, text='Your Music', font='Courier 12')
@@ -155,7 +155,7 @@ emptyLabel = tk.Label(bg=mainColor)
 emptyLabel.grid(column=0, row=2)
 emptyLabel2 = tk.Label(bg=mainColor, width=2)
 emptyLabel2.grid(column=1, row=0)
-timeLabel = tk.Label(sliderFrame, text='')
+timeLabel = tk.Label(sliderFrame, text='', bg=mainColor, fg='white', borderwidth=0, width=7)
 timeLabel.grid(column=0, row=0)
 
 browseSongs = tk.Button(Box, text='Browse', width=16, command=browseSong)
